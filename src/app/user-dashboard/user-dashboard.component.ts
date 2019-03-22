@@ -26,7 +26,7 @@ export class UserDashboardComponent implements OnInit {
 
   handleFilter(event:any):void{
     this.filteredData = this.userDetails.map((value,index)=>{
-      if(event.target.value==value.username)
+      if(JSON.stringify(value).includes(event.target.value))
         return value;
     });
   }
