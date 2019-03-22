@@ -1,3 +1,91 @@
-<p>
-  user-dashboard works!
-</p>
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="dashboard">
+  <div class="top-nav">
+    <img style="float:left;" src="../assets/images/baseline_menu_white_24dp.png" />
+    <p style="float:left;color:white;margin:0;margin-left:40px">Play</p>
+    <div class="top-nav-list" style="float:right;margin-right:20px;">
+      <ul>
+        <li><a href="#"><img src="../assets/images/baseline_search_white_24dp.png"></a></li>
+        <li><a href="news.asp"><img src="../assets/images/baseline_mail_outline_white_24dp.png"></a></li>
+        <li><a href="contact.asp"><img src="../assets/images/baseline_notifications_none_white_24dp.png"></a></li>
+        <li><a href="about.asp"><img src="../assets/images/outline_settings_white_24dp.png"></a></li>
+      </ul>
+      <p style="float:left;color:white;margin:0;margin-right:10px">Arth Gajjar</p>
+      <img src="../assets/images/profile.png" style="width:24px;height:24px;border-radius: 50%;" />
+    </div>
+  </div>
+
+  <div class="content-holder">
+
+    <div class="side-nav">
+      <ul>
+        <li><a href="#"><img src="../assets/images/outline_home_white_24dp.png"></a></li>
+        <li><a href="news.asp"><img src="../assets/images/outline_star_border_white_24dp.png"></a></li>
+        <li><a href="contact.asp"><img src="../assets/images/outline_person_white_24dp.png"></a></li>
+        <li><a href="about.asp"><img src="../assets/images/outline_shuffle_white_24dp.png"></a></li>
+        <li><a href="about.asp"><img src="../assets/images/outline_lock_white_24dp.png"></a></li>
+      </ul>
+    </div>
+
+    <div class="data-holder">
+
+      <div class="option-holder">
+
+        <input class="filter-input" type="text" [(ngModel)]="filterKey" (keyup)="handleFilter($event)" placeholder="Filter" />
+
+        <div class="action-buttons">
+          <button class="neg-button">CREATE USER</button>
+          <button class="neg-button">IMPORT USER</button>
+          <button class="pos-button">REFRESH</button>
+        </div>
+
+
+      </div>
+      <div class="user-table">
+        <table>
+          <tr class="header-row">
+            <td>USERNAME</td>
+            <td>ENABLED</td>
+            <td>ACCOUNT STATUS</td>
+            <td>EMAIL VERIFIED</td>
+            <td>PHONE NO. VERIFIED</td>
+            <td>UPDATED AT</td>
+            <td>CREATED AT</td>
+          </tr>
+
+          <ng-container *ngFor="let user of filteredData">
+            <tr *ngIf="user">
+              <td><a href="#">{{user.username}}</a></td>
+              <td><img
+                  [src]="user.enabled?'../assets/images/outline_done_black_24dp.png':'../assets/images/outline_close_black_24dp.png'">
+              </td>
+              <td>{{user.accountStatus}}</td>
+              <td><img
+                  [src]="user.emailVerified?'../assets/images/outline_done_black_24dp.png':'../assets/images/outline_close_black_24dp.png'">
+              </td>
+              <td><img
+                  [src]="user.phoneVerified?'../assets/images/outline_done_black_24dp.png':'../assets/images/outline_close_black_24dp.png'">
+              </td>
+              <td>{{user.updatedAt}}</td>
+              <td>{{user.createdAt}}</td>
+            </tr>
+          </ng-container>
+
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- <h1>{{title}}</h1>
+  <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/heroes">Heroes</a>
+    </nav>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+  
+   -->
